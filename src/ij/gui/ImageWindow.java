@@ -13,7 +13,7 @@ import ij.macro.Interpreter;
 import ij.util.*;
 
 /** A frame for displaying images. */
-public class ImageWindow extends Frame implements FocusListener, WindowListener, WindowStateListener, MouseWheelListener {
+public class ImageWindow extends ImageWindowSuper implements FocusListener, WindowListener, WindowStateListener, MouseWheelListener {
 
 	public static final int MIN_WIDTH = 128;
 	public static final int MIN_HEIGHT = 32;
