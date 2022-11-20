@@ -1240,7 +1240,7 @@ public class Roi extends Object implements Cloneable, java.io.Serializable, Iter
 	}
 
 	// Finds the union of current and previous roi
-	protected void updateClipRect() {
+	public void updateClipRect() {
 		clipX = (x<=oldX)?x:oldX;
 		clipY = (y<=oldY)?y:oldY;
 		clipWidth = ((x+width>=oldX+oldWidth)?x+width:oldX+oldWidth) - clipX + 1;
@@ -1707,15 +1707,6 @@ public class Roi extends Object implements Cloneable, java.io.Serializable, Iter
 			return (new ShapeRoi(new RoundRectangle2D.Float(x, y, width, height, cornerDiameter, cornerDiameter))).getMask();
 		else
 			return null;
-	}
-
-	public void startPaste(ImagePlus clipboard) {
-		IJ.showStatus("Pasting...");
-		IJ.wait(10);
-		this.clipboard = clipboard;
-		imp.getProcessor().snapshot();
-		updateClipRect();
-		imp.draw(clipX, clipY, clipWidth, clipHeight);
 	}
 
 	void updatePaste() {
